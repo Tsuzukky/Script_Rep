@@ -3,3 +3,6 @@
 //Created by MasatoTsuzuki
 
 //.vex files
+
+//directory.../houdini/vex/files
+

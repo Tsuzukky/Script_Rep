@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pythonPanelDocument>
+  <!-- This file contains definitions of Python interfaces and the
+ interfaces menu.  It should not be hand-edited when it is being
+ used by the application.  Note, that two definitions of the
+ same interface or of the interfaces menu are not allowed
+ in a single file. -->
+  <interfacesMenu type="toolbar">
+    <interfaceItem name="sesi_quick_start"/>
+    <interfaceItem name="AssetManeger10"/>
+    <separatorItem/>
+  </interfacesMenu>
+  <interfacesMenu type="panetab">
+    <interfaceItem name="sesi_auto_rigs"/>
+    <interfaceItem name="sesi_character_picker"/>
+    <interfaceItem name="sesi_pose_library"/>
+    <interfaceItem name="AssetManeger10"/>
+    <interfaceItem name="test"/>
+  </interfacesMenu>
+  <interface name="sesi_quick_start" label="Quick Start: Calendar Example" icon="MISC_python" help_url="">
+    <script><![CDATA[import sys
+import hou
+import icons
+import os
+import platform
+from PySide2 import QtWidgets,QtGui,QtCore
+#import python27.kr_houdini
+#import python27.dep_system
+
+
+iconpath = "".join(icons.__path__)
+
+class ToolsWidget(QtWidgets.QWidget):
+    def __init__(self,*args,**kwargs):
+        super(ToolsWidget,self).__init__(*args,**kwargs)
+
+        #ToolsA
+        self.ToolsLayout = QtWidgets.QGridLayout(self)
+        self.ToolsLayout.setSpacing(15)
+        self.ToolsA = QtWidgets.QPushButton("Set_Dependency")
+        self.ToolsA.setIcon(QtGui.QPixmap(iconpath + '/' + 'dependency.png'))
+        self.ToolsA.setIconSize(QtCore.QSize(50,50))
+        self.ToolsA.setFixedSize(200,80)
+        self.ToolsA.setStyleSheet("color: White ; font-size 13pt;")
+
+        self.ToolsA.clicked.connect()
+
+        #ToolsB
+        self.ToolsB = QtWidgets.QPushButton("RenderSet")
+        self.ToolsB.setIcon(QtGui.QPixmap(iconpath + '/' + 'Renderset.png'))
+        self.ToolsB.setIconSize(QtCore.QSize(50,50))
+        self.ToolsB.setFixedSize(200,80)
+
+        self.ToolsB.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsC
+        self.ToolsC = QtWidgets.QPushButton("Add_Pallete",self)
+        self.ToolsC.setIcon(QtGui.QPixmap(iconpath + '/' + 'EmptyPalette.png'))
+        self.ToolsC.setIconSize(QtCore.QSize(50,50))
+        self.ToolsC.setFixedSize(200,80)
+        self.ToolsC.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsD
+        self.ToolsD = QtWidgets.QPushButton("Add_RenderPallete",self)
+        self.ToolsD.setIcon(QtGui.QPixmap(iconpath + '/' + 'Package.png'))
+        self.ToolsD.setIconSize(QtCore.QSize(50,50))
+        self.ToolsD.setFixedSize(200,80)
+        self.ToolsD.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsE
+        self.ToolsE = QtWidgets.QPushButton("Set_AlienTool",self)
+        self.ToolsE.setIcon(QtGui.QPixmap(iconpath + '/' + 'Alien.svg'))
+        self.ToolsE.setIconSize(QtCore.QSize(50,50))
+        self.ToolsE.setFixedSize(200,80)
+        self.ToolsE.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsF
+        self.ToolsF = QtWidgets.QPushButton("ToolF",self)
+        self.ToolsF.setFixedSize(200,80)
+        self.ToolsF.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsG
+        self.ToolsG = QtWidgets.QPushButton("MotionTrail",self)
+        self.ToolsG.setIcon(QtGui.QPixmap(iconpath + '/' + 'M_trail.png'))
+        self.ToolsG.setIconSize(QtCore.QSize(50,50))
+        self.ToolsG.setFixedSize(200,80)
+        self.ToolsG.setStyleSheet("color: White ; font-size 13pt;")
+
+
+        #--7#Self.ScrollArea&Tools
+        self.ToolsLayout.addWidget(self.ToolsA,0,0)
+        self.ToolsLayout.addWidget(self.ToolsB,0,1)
+        self.ToolsLayout.addWidget(self.ToolsC,1,0)
+        self.ToolsLayout.addWidget(self.ToolsD,1,1)
+        self.ToolsLayout.addWidget(self.ToolsE,2,0)
+        self.ToolsLayout.addWidget(self.ToolsF,2,1)
+        self.ToolsLayout.addWidget(self.ToolsG,3,0)
+]]></script>
+    <includeInToolbarMenu menu_position="100" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+  <interface name="test" label="test" icon="MISC_python" help_url="">
+    <script><![CDATA[import sys
+import hou
+import icons
+import os
+import platform
+from PySide2 import QtWidgets,QtGui,QtCore
+import kr_houdini
+import dep_system
+
+
+iconpath = "".join(icons.__path__)
+
+class ToolsWidget(QtWidgets.QWidget):
+    def __init__(self,*args,**kwargs):
+        super(ToolsWidget,self).__init__(*args,**kwargs)
+    
+  
+        #ToolsA
+        self.ToolsLayout = QtWidgets.QGridLayout(self)
+        self.ToolsLayout.setSpacing(15)
+        self.ToolsA = QtWidgets.QPushButton("Set_Dependency")
+        self.ToolsA.setIcon(QtGui.QPixmap(iconpath + '/' + 'dependency.png'))
+        self.ToolsA.setIconSize(QtCore.QSize(50,50))
+        self.ToolsA.setFixedSize(200,80)
+        self.ToolsA.setStyleSheet("color: White ; font-size 13pt;")
+    
+        #ToolsB
+        self.ToolsB = QtWidgets.QPushButton("RenderSet")
+        self.ToolsB.setIcon(QtGui.QPixmap(iconpath + '/' + 'Renderset.png'))
+        self.ToolsB.setIconSize(QtCore.QSize(50,50))
+        self.ToolsB.setFixedSize(200,80)
+
+        self.ToolsB.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsC
+        self.ToolsC = QtWidgets.QPushButton("Add_Pallete",self)
+        self.ToolsC.setIcon(QtGui.QPixmap(iconpath + '/' + 'EmptyPalette.png'))
+        self.ToolsC.setIconSize(QtCore.QSize(50,50))
+        self.ToolsC.setFixedSize(200,80)
+        self.ToolsC.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsD
+        self.ToolsD = QtWidgets.QPushButton("Add_RenderPallete",self)
+        self.ToolsD.setIcon(QtGui.QPixmap(iconpath + '/' + 'Package.png'))
+        self.ToolsD.setIconSize(QtCore.QSize(50,50))
+        self.ToolsD.setFixedSize(200,80)
+        self.ToolsD.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsE
+        self.ToolsE = QtWidgets.QPushButton("Set_AlienTool",self)
+        self.ToolsE.setIcon(QtGui.QPixmap(iconpath + '/' + 'Alien.svg'))
+        self.ToolsE.setIconSize(QtCore.QSize(50,50))
+        self.ToolsE.setFixedSize(200,80)
+        self.ToolsE.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsF
+        self.ToolsF = QtWidgets.QPushButton("ToolF",self)
+        self.ToolsF.setFixedSize(200,80)
+        self.ToolsF.setStyleSheet("color: White ; font-size 13pt;")
+
+        #ToolsG
+        self.ToolsG = QtWidgets.QPushButton("MotionTrail",self)
+        self.ToolsG.setIcon(QtGui.QPixmap(iconpath + '/' + 'M_trail.png'))
+        self.ToolsG.setIconSize(QtCore.QSize(50,50))
+        self.ToolsG.setFixedSize(200,80)
+        self.ToolsG.setStyleSheet("color: White ; font-size 13pt;")
+
+
+        #--7#Self.ScrollArea&Tools
+        self.ToolsLayout.addWidget(self.ToolsA,0,0)
+        self.ToolsLayout.addWidget(self.ToolsB,0,1)
+        self.ToolsLayout.addWidget(self.ToolsC,1,0)
+        self.ToolsLayout.addWidget(self.ToolsD,1,1)
+        self.ToolsLayout.addWidget(self.ToolsE,2,0)
+        self.ToolsLayout.addWidget(self.ToolsF,2,1)
+        self.ToolsLayout.addWidget(self.ToolsG,3,0)
+        
+        
+        self.ToolsA.clicked.connect(self.Set_Dep)
+        
+    def Set_Dep(self):
+        dep_system.createDepsys("obj")
+        
+        
+        
+
+def onCreateInterface():
+    widget = ToolsWidget()
+    return widget
+]]></script>
+    <includeInToolbarMenu menu_position="108" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+  <interface name="PyOpenGL" label="PyOpenGL" icon="MISC_python" help_url="">
+    <script><![CDATA[from hutil.Qt import QtCore, QtWidgets
+
+py_gl_found = True
+
+try:
+    from OpenGL.GL import *
+    from OpenGL.GL import shaders
+    from OpenGL.arrays import *
+except ImportError:
+    py_gl_found = False
+    QtWidgets.QMessageBox.critical(None, "Custom Graphics Scene Example",
+                            "PyOpenGL must be installed to run this example.",
+                            QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Default,
+                            QtWidgets.QMessageBox.NoButton)
+def float_array(py_array):
+    floats = GLfloatArray.zeros(len(py_array))
+    for x in xrange(0, len(py_array)):
+        floats[x] = py_array[x]
+
+    return floats
+
+label_style = "background: rgba(0,0,0,0); color: #FFFFFF; font-size: 14px"
+light_label_style = "background: rgba(0,0,0,0); color: #CCCCCC; font-size: 12px"
+
+desc_text = """This example uses a custom graphics scene to combine QWidgets with \
+OpenGL rendering.
+Use the left mouse button to pan and the mouse wheel to zoom."""
+
+box_verts = [-1, 1, -1, 1, 1, 1, 1, 1, -1, -1,  1, -1, -1, 1, 1, 1, 1, 1,
+             -1, 1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1,
+             -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, 1, 1, -1, -1, -1,-1, -1, 1,
+             -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1,
+              1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1,
+             -1, -1, 1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1,
+            ]
+
+class CustomScene(QtWidgets.QGraphicsScene):
+    def __init__(self):
+        """Initializes the custom graphics scene. Sets up labels and default
+           values for rotation and zoom factors."""
+
+        QtWidgets.QGraphicsScene.__init__(self)
+        self.xRot = 35.0
+        self.yRot = 25.0
+        self.lastPos = None
+        self.zoom = 1.0
+
+        self.rotationLabel = QtWidgets.QLabel("Rotation:  [35.0, 25.0]")
+        self.rotationLabel.move(10, 10)
+        self.rotationLabel.setFixedWidth(200)
+        self.rotationLabel.setStyleSheet(label_style)
+
+        self.zoomLabel = QtWidgets.QLabel("Zoom factor:  [1.0]")
+        self.zoomLabel.move(10, 30)
+        self.zoomLabel.setFixedWidth(200)
+        self.zoomLabel.setStyleSheet(label_style)
+
+        self.descLabel = QtWidgets.QLabel(desc_text) 
+        self.descLabel.move(10, 200)
+        self.descLabel.setStyleSheet(light_label_style)
+        self.descLabel.setFixedWidth(self.width())
+        self.descLabel.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignBottom)
+
+        self.resetButton = QtWidgets.QPushButton("Reset Orientation")
+        self.resetButton.move(10, 70)
+        self.resetButton.clicked.connect(self.reset)
+
+        self.addWidget(self.rotationLabel)
+        self.addWidget(self.zoomLabel)
+        self.addWidget(self.descLabel)
+        self.addWidget(self.resetButton)
+
+        self.glInit = False
+        self.shader = None
+
+    def reset(self):
+        self.xRot = 35.0
+        self.yRot = 25.0
+        self.zoom = 1.0
+        self.rotationLabel.setText("Rotation:  [35.0, 25.0]")        
+        self.zoomLabel.setText("Zoom factor:  [1.0]")
+        self.update()
+
+    def wheelEvent(self, event):
+        """Called when the mouse wheel is rotated. Increases or decreases
+           the zoom factor based on the mouse wheel."""
+
+        QtWidgets.QGraphicsScene.wheelEvent(self, event)
+
+        if event.isAccepted():
+            return
+
+        self.zoom -= event.delta() / 2000.0
+        if self.zoom < 0.1:
+            self.zoom = 0.1
+
+        self.zoomLabel.setText("Zoom factor:  [" + str(self.zoom) + "]")
+        self.update()
+
+    def mousePressEvent(self, event):
+        """ Called when a mouse button is pressed. Stores the mouse pos."""
+
+        QtWidgets.QGraphicsScene.mousePressEvent(self, event)
+
+        if event.buttons() == QtCore.Qt.LeftButton:
+            self.lastPos = event.scenePos()
+
+    def mouseMoveEvent(self, event):
+        """Called when the mouse moves. Rotates the viewport"""
+
+        QtWidgets.QGraphicsScene.mouseMoveEvent(self, event)
+
+        if event.isAccepted():
+            return
+
+        if event.buttons() == QtCore.Qt.LeftButton:
+            pos = event.scenePos()
+            if self.lastPos is None:
+                self.lastPos = pos
+            else:
+                deltaX = pos.x() - self.lastPos.x()
+                deltaY = pos.y() - self.lastPos.y()
+                self.lastPos = pos
+
+                self.yRot += deltaX
+                self.xRot += deltaY
+
+                if self.xRot > 90:
+                    self.xRot = 90
+                elif self.xRot < -90:
+                    self.xRot = -90
+
+                if self.yRot > 180:
+                    self.yRot -= 360
+                elif self.yRot < -180:
+                    self.yRot += 360
+
+                self.rotationLabel.setText("Rotation:  [" + str(self.xRot) +
+                                           ", " + str(self.yRot) + "]")
+                self.update()
+
+    def initGL(self):
+        """ Initializes OpenGL resources if they have not already been created"""
+        if self.glInit:
+            return
+
+        self.glInit = True
+
+        verts = float_array(box_verts)
+
+        self.vbo = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, self.vbo)
+        glBufferData(GL_ARRAY_BUFFER, 432, verts, GL_STATIC_DRAW)
+        glBindBuffer(GL_ARRAY_BUFFER, 0)
+
+        vertex_shader = shaders.compileShader("""
+            #version 150
+            in vec3 v_position;
+
+            uniform mat4 m_scale;
+            uniform mat4 m_rot;
+            uniform mat4 m_projection;
+
+            void main()
+            {
+                mat4 mvp = m_projection * m_rot * m_scale;
+                gl_Position = mvp * vec4(v_position, 1.0);
+            }
+            """, GL_VERTEX_SHADER)
+
+        fragment_shader = shaders.compileShader("""
+            #version 150
+
+            uniform float f_opacity;
+            void main()
+            {
+                gl_FragColor = vec4(0.9, 0.55, 0.3, f_opacity);
+            }
+            """, GL_FRAGMENT_SHADER)
+
+        self.shader = shaders.compileProgram(vertex_shader, fragment_shader)
+
+        self.uniforms = {
+            'm_scale': glGetUniformLocation(self.shader, 'm_scale'),
+            'm_rot': glGetUniformLocation(self.shader, 'm_rot'),
+            'm_projection': glGetUniformLocation( self.shader, 'm_projection'),
+            'f_opacity': glGetUniformLocation( self.shader, 'f_opacity'),
+        }
+
+    def setProjection(self):
+        """ Computes and sets the projection matrix based on view size/zoom"""
+        aspect = float(self.width())/float(self.height())
+        factor = 5 * self.zoom
+
+        lr = 1.0 / (factor * aspect * 2.0);
+        bt = 1.0 / (factor * 2.0);
+        nf = 1.0 / (-1.0 - 100.0);
+
+        ortho = [lr, 0,  0,         0,
+                 0,  bt, 0,         0,
+                 0,  0,  2.0 * nf,  0, 
+                 0,  0,  99.0 * nf, 1]
+        p = float_array(ortho)
+
+        glUniformMatrix4fv(self.uniforms["m_projection"], 1, GL_FALSE, p)
+
+    def drawBox(self, x_scale, y_scale, z_scale, opacity):
+        # Transform the box based on the view settings and scale        
+        ca = math.cos(0.0)
+        cb = math.cos(self.xRot/ 180.0 * 3.14159)
+        ch = math.cos(self.yRot/ 180.0 * 3.14159)
+
+        sa = math.sin(0.0)
+        sb = math.sin(self.xRot/ 180.0 * 3.14159)
+        sh = math.sin(self.yRot/ 180.0 * 3.14159)
+
+        r = [ch*ca,  -ch*sa*cb + sh*sb,  ch*sa*sb + sh*cb,    0.0,
+             sa,     ca*cb,              -ca*sb,              0.0,
+             -sh*ca, sh*sa*cb + ch*sb,   (-sh*sa*sb + ch*cb), 0.0, 
+             0.0,    0.0,                -3.0,                1.0]
+        rot = float_array(r)
+
+        s = [x_scale, 0.0,     0.0,     0.0,
+             0.0,     y_scale, 0.0,     0.0,
+             0.0,     0.0,     z_scale, 0.0,
+             0.0,     0.0,     0.0,     1.0]
+        scale = float_array(s)
+
+        glUniformMatrix4fv(self.uniforms["m_scale"], 1, GL_FALSE, scale)
+        glUniformMatrix4fv(self.uniforms["m_rot"], 1, GL_FALSE, rot)
+
+        glUniform1fv(self.uniforms["f_opacity"], 1, opacity)
+
+        glBindBuffer(GL_ARRAY_BUFFER, self.vbo)
+        glEnableClientState(GL_VERTEX_ARRAY)
+        glVertexPointer(3, GL_FLOAT, 0, None)
+
+        glDrawArrays(GL_TRIANGLES, 0, 36)
+
+        glDisableClientState(GL_VERTEX_ARRAY)
+        glBindBuffer (GL_ARRAY_BUFFER, 0)
+
+    def drawBackground(self, painter, rect):
+        """ Called when the scene should render it's background. Can use GL."""
+
+        QtWidgets.QGraphicsScene.drawBackground(self, painter, rect)
+
+        # PyOpenGL is needed for this example
+        if not py_gl_found:
+            return
+
+        # Init GL
+        self.initGL()
+
+        # Update the label to match the size of the graphics scene
+        self.descLabel.setFixedWidth(self.width())
+        self.descLabel.setFixedHeight(self.height() - 230)
+
+        # Clear the viewport
+        glClearColor(0.2, 0.28, 0.32, 1.0)
+        glClearDepth(1.0)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+        # Enable blending and culling
+        glEnable(GL_BLEND)
+        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA)
+        glEnable(GL_CULL_FACE)
+
+        # Activate the shader for the box
+        shaders.glUseProgram(self.shader)
+
+        # Set the projection matrix
+        self.setProjection()
+
+        # Draw the boxes
+        self.drawBox(0.50, 0.10, 0.25, 0.75)
+        self.drawBox(0.75, 0.25, 0.75, 0.45)
+        self.drawBox(1.75, 0.50, 1.75, 0.25)
+        self.drawBox(2.50, 1.50, 2.50, 0.10)
+
+        # Unbind the shader
+        shaders.glUseProgram(0)
+
+        # Restore the GL state
+        glDisable(GL_BLEND)
+        glDisable(GL_CULL_FACE)
+
+def createInterface():
+    widget = CustomScene()
+    return widget
+]]></script>
+    <includeInToolbarMenu menu_position="109" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+  <interface name="build_test" label="build_test" icon="MISC_python" help_url="">
+    <script><![CDATA[import sys
+import hou
+import icons
+import os
+import platform
+from PySide2 import QtWidgets,QtGui,QtCore
+
+
+class Tools(QtWidgets.QWidget):
+    def __init__(self,*args,**kwargs):
+        super(Tools,self).__init__(*args,**kwargs)
+        
+        
+        self.tab = QtWidgets.QTabBar(self)
+        self.tab.addTab("Heloo")
+        
+        #
+        #self.tab_A.insertTab(1,"test")
+        #Eself.tab_A.setTabTextColor(1,QtGui.QColor("red") )
+
+
+def onCreateInterface():
+
+
+    tool = Tools()
+   
+    return tool
+   
+    ]]></script>
+    <includeInToolbarMenu menu_position="110" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+  <interface name="LVS_ToolLancher" label="LVS_ToolLancher" icon="MISC_python" help_url="">
+    <script><![CDATA[from PySide2 import QtWidgets,QtGui,QtCore
+
+import toolwidgets
+
+reload(toolwidgets)
+
+ToolWindow = toolwidgets.MasterWindow.MasterWindow()
+def onCreateInterface():
+    
+    
+    Build = ToolWindow
+    
+    
+    
+    
+    return Build]]></script>
+    <includeInToolbarMenu menu_position="111" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+</pythonPanelDocument>

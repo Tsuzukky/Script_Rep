@@ -23,3 +23,27 @@ flip_book_options.frameRange((0, 5)) # Enter Frame Range Here in x & y
 flip_book_options.useResolution(1)
 flip_book_options.resolution((1080, 720)) # Based on your camera resolution
 scene.flipbook(scene.curViewport(), flip_book_options)
+
+
+#Interapet Progress 
+hou.InterruptableOperation class
+Use this class to turn any Python code block into an interruptable operation.
+
+Note
+
+hou.InterruptableOperation does not work in the Python Shell. For testing purposes, use a shelf tool instead.
+
+METHODS
+Filter
+
+Original order
+ Collapse AllExpand All
+__init__(operation_name, long_operation_name=None, open_interrupt_dialog=False)
+
+Construct a new InterruptableOperation.
+updateLongProgress(percentage=-1.0, long_op_status=None)
+
+Update the progress percentage and status of the long, or high-level, operation.
+updateProgress(percentage=-1.0)
+
+Update the progress percentage of the operation.

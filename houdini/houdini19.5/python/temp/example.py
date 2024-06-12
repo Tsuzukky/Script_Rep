@@ -47,3 +47,15 @@ Update the progress percentage and status of the long, or high-level, operation.
 updateProgress(percentage=-1.0)
 
 Update the progress percentage of the operation.
+
+
+
+##Selection Nodes##
+#Import Houdini's Command Module
+import hou
+#Store path to Subnet in variable "rig"
+rig = hou.node("/obj/geo1")
+#For Loop - iterate through network, in search of nodes that match pattern "*_anim"
+for ctrl in rig.glob("*foo*"):
+    #Select all nodes that match pattern "*_anim" | NOTE: ctrl.setSelected(1, 0) also works :)
+    ctrl.setSelected(True, clear_all_selected=False)
